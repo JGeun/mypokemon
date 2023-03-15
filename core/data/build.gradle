@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -31,6 +33,18 @@ android {
 }
 
 dependencies {
+
+    implementation project(path: ':core:database')
+    implementation project(path: ':core:network')
+    implementation project(path: ':core:model')
+
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    implementation "com.github.skydoves:sandwich:$sandwich_version"
+    implementation 'androidx.annotation:annotation-jvm:1.6.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
