@@ -5,7 +5,7 @@ import jgeun.study.mypokemon.database.entity.mapper.asDomain
 import jgeun.study.mypokemon.model.Pokemon
 import jgeun.study.mypokemon.network.Dispatcher
 import jgeun.study.mypokemon.network.PokemonAppDispatchers
-import jgeun.study.mypokemon.network.service.MyPokemonClient
+import jgeun.study.mypokemon.network.service.PokemonClient
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -20,9 +20,9 @@ import kotlinx.coroutines.flow.onStart
 
 
 class MainRepositoryImpl @Inject constructor(
-    private val pokemonClient: MyPokemonClient,
-    private val pokemonDao: PokemonDao,
-    @Dispatcher(PokemonAppDispatchers.IO) private val ioDispatcher: CoroutineDispatcher
+	private val pokemonClient: PokemonClient,
+	private val pokemonDao: PokemonDao,
+	@Dispatcher(PokemonAppDispatchers.IO) private val ioDispatcher: CoroutineDispatcher
 ) : MainRepository {
 
     override fun fetchPokemonList(

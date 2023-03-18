@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import jgeun.study.mypokemon.network.service.MyPokemonClient
-import jgeun.study.mypokemon.network.service.MyPokemonService
+import jgeun.study.mypokemon.network.service.PokemonClient
+import jgeun.study.mypokemon.network.service.PokemonService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -44,13 +44,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMyPokemonService(retrofit: Retrofit): MyPokemonService {
-        return retrofit.create(MyPokemonService::class.java)
+    fun providePokemonService(retrofit: Retrofit): PokemonService {
+        return retrofit.create(PokemonService::class.java)
     }
 
     @Provides
     @Singleton
-    fun providePokedexClient(pokedexService: MyPokemonService): MyPokemonClient {
-        return MyPokemonClient(pokedexService)
+    fun providePokemonClient(pokedexService: PokemonService): PokemonClient {
+        return PokemonClient(pokedexService)
     }
 }
