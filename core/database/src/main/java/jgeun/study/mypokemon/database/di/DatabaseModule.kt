@@ -12,7 +12,6 @@ import jgeun.study.mypokemon.database.dao.PokemonDao
 import jgeun.study.mypokemon.database.PokemonDatabase
 import jgeun.study.mypokemon.database.dao.PokemonInfoDao
 import jgeun.study.mypokemon.database.TypeResponseConverter
-import jgeun.study.mypokemon.database.dao.PokemonTypeDao
 import javax.inject.Singleton
 
 @Module
@@ -50,12 +49,6 @@ object DatabaseModule {
     @Singleton
     fun providePokemonInfoDao(appDatabase: PokemonDatabase): PokemonInfoDao {
         return appDatabase.pokemonInfoDao()
-    }
-
-    @Provides
-    @Singleton
-    fun providePokemonTypeDao(appDatabase: PokemonDatabase): PokemonTypeDao {
-        return appDatabase.pokemonTypeDao()
     }
 
     @Provides

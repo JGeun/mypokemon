@@ -5,7 +5,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import jgeun.study.mypokemon.database.dao.PokemonDao
 import jgeun.study.mypokemon.database.dao.PokemonInfoDao
-import jgeun.study.mypokemon.database.dao.PokemonTypeDao
 import jgeun.study.mypokemon.database.entity.PokemonEntity
 import jgeun.study.mypokemon.database.entity.PokemonInfoEntity
 
@@ -19,5 +18,4 @@ abstract class PokemonDatabase : RoomDatabase() {
 
     abstract fun pokemonDao(): PokemonDao
     abstract fun pokemonInfoDao(): PokemonInfoDao
-    abstract fun pokemonTypeDao(): PokemonTypeDao
 }
