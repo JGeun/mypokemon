@@ -7,7 +7,7 @@ import jgeun.study.mypokemon.database.entity.mapper.asEntity
 import jgeun.study.mypokemon.model.PokemonInfo
 import jgeun.study.mypokemon.network.Dispatcher
 import jgeun.study.mypokemon.network.PokemonAppDispatchers
-import jgeun.study.mypokemon.network.service.MyPokemonClient
+import jgeun.study.mypokemon.network.service.PokemonClient
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -17,9 +17,9 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 
 class DetailRepositoryImpl @Inject constructor(
-    private val pokemonClient: MyPokemonClient,
-    private val pokemonInfoDao: PokemonInfoDao,
-    @Dispatcher(PokemonAppDispatchers.IO) private val ioDispatchers: CoroutineDispatcher
+	private val pokemonClient: PokemonClient,
+	private val pokemonInfoDao: PokemonInfoDao,
+	@Dispatcher(PokemonAppDispatchers.IO) private val ioDispatchers: CoroutineDispatcher
 ) : DetailRepository {
 
     override fun fetchPokemonInfo(

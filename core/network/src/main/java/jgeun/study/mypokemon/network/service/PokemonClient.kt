@@ -6,8 +6,8 @@ import jgeun.study.mypokemon.model.PokemonInfo
 import jgeun.study.mypokemon.model.PokemonType
 import jgeun.study.mypokemon.network.model.BasePokemonResponse
 
-class MyPokemonClient(
-    private val pokemonService: MyPokemonService
+class PokemonClient(
+    private val pokemonService: PokemonService
 ) {
 
     suspend fun fetchPokemonList(
